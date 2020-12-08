@@ -11,7 +11,7 @@ define Package/kismet-capture-linux-wifi
   CATEGORY:=Network
   TITLE:=Kismet Wi-Fi Capture Support
   URL:=https://www.kismetwireless.net
-  DEPENDS:=+libpthread +libpcap +libnl +libcap +protobuf-lite +libprotobuf-c
+  DEPENDS:=+libpthread +libpcap +libnl +libcap +protobuf-lite +libprotobuf-c +libwebsockets-full
   SUBMENU:=kismet
 endef
 
@@ -25,15 +25,9 @@ define Build/Configure
 endef
 
 CONFIGURE_ARGS += \
-	--enable-capture-tools-only \
-	--sysconfdir=/etc/kismet \
-	--bindir=/usr/bin \
-	--disable-python-tools \
-	--with-protoc=$(STAGING_DIR_HOSTPKG)/bin/protoc \
-	--enable-protobuflite \
-	--disable-element-typesafety \
+	$(CONFIGURE_OPTS) \
 	--disable-libusb \
-	--disable-debuglibs
+	--enable-capture-tools-only
 
 # Override libs to force lpthread because we don't detect it properly on openwrt
 CONFIGURE_VARS += \

@@ -11,7 +11,7 @@ define Package/kismet-capture-nxp-kw41z
   CATEGORY:=Network
   TITLE:=Kismet NXPKW41Z Capture Support
   URL:=https://www.kismetwireless.net
-  DEPENDS:=+libpthread +libpcap +libnl +libcap +protobuf-lite +libprotobuf-c +libusb-1.0
+  DEPENDS:=+libpthread +libpcap +libnl +libcap +protobuf-lite +libprotobuf-c +libusb-1.0 +libwebsockets-full
   SUBMENU:=kismet
 endef
 
@@ -25,14 +25,8 @@ define Build/Configure
 endef
 
 CONFIGURE_ARGS += \
-	--enable-capture-tools-only \
-	--sysconfdir=/etc/kismet \
-	--bindir=/usr/bin \
-	--disable-python-tools \
-	--with-protoc=$(STAGING_DIR_HOSTPKG)/bin/protoc \
-	--enable-protobuflite \
-	--disable-element-typesafety \
-	--disable-debuglibs
+	$(CONFIGURE_OPTS) \
+	--enable-capture-tools-only
 
 # Override libs to force lpthread because we don't detect it properly on openwrt
 CONFIGURE_VARS += \
