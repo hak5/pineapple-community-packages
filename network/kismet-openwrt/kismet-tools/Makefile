@@ -11,7 +11,7 @@ define Package/kismet-tools
   CATEGORY:=Network
   TITLE:=Kismet server and log tools
   URL:=https://www.kismetwireless.net
-  DEPENDS:=+libpthread +libpcap +libpcre +libmicrohttpd +libnl +libcap +libstdcpp +libncurses +libsqlite3 +zlib +protobuf-lite +libprotobuf-c kismet
+  DEPENDS:=+libpthread +libpcap +libpcre +libmicrohttpd +libnl +libcap +libstdcpp +libncurses +libsqlite3 +zlib +protobuf-lite +libprotobuf-c +libwebsockets-full kismet
   SUBMENU:=kismet
 endef
 
