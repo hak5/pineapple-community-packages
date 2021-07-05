@@ -1,0 +1,8 @@
+[submodule "net/sslsplit/sslsplit"]
+	path = net/sslsplit/sslsplit
+	url = git@github.com:droe/sslsplit.git
+	branch = develop
+[submodule "net/sslsplit/src"]
+	path = net/sslsplit/src
+	url = git@github.com:droe/sslsplit.git
+	branch = develop
